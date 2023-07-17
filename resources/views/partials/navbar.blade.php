@@ -8,8 +8,10 @@
         <div class="navbar-nav text-white" >
             <a class="nav-link {{($title === 'Home') ? 'active fw-bolder':''}} "  href="/">Home</a>
             <a class="nav-link {{($title === 'About') ? 'active fw-bolder':''}} " href="/about">About</a>
-            <a class="nav-link {{($title !== 'Home' && $title !== 'About' && $title !== 'All Category') ? 'active fw-bolder':''}} " href="/posts">Blog</a>
+            <a class="nav-link {{str_contains($title,'All Posts')? 'active fw-bolder':''}} " href="/posts">Blog</a>
             <a class="nav-link {{($title === 'All Category') ? 'active fw-bolder':''}} " href="/categories">Category</a>
+            <a class="nav-link {{($title === 'Login') ? 'active fw-bolder':''}} " href="/login">Login</a>
+            <a class="nav-link {{($title === 'Register') ? 'active fw-bolder':''}} " href="/register">Register</a>
         </div>
       </div>
     </div>

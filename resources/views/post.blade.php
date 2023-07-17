@@ -62,6 +62,9 @@
         @endforeach
     </div>
   </div>
+  <div class="d-flex justify-content-center mt-4">
+    {{$posts->links()}}
+  </div>
 
 @elseif($isCategories === true)
 <h2>{{$title}}</h2>
@@ -86,9 +89,7 @@
 
 @endif
 
-<div class="d-flex justify-content-center mt-4">
-  {{$posts->links()}}
-</div>
+
 
 
 

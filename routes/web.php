@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\User;
@@ -36,14 +38,10 @@ Route::get('/posts', [PostController::class, 'index']);
 
 Route::get('/blog/{post:slug}', [PostController::class, 'show']);
 
-Route::get('/category/{category:slug}', [PostController::class, 'category']);
-
 Route::get(
     '/categories',
     [PostController::class, 'categoryList']
 );
 
-Route::get(
-    '/author/{author:username}',
-    [PostController::class, 'author']
-);
+Route::get('/login', [LoginController::class, 'index']);
+Route::get('/register', [RegisterController::class, 'index']);
