@@ -12,17 +12,41 @@
               <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
             @endif
-            <form>
+
+            @if(session()->has('loginError'))
+            <div class="alert alert-danger alert-dismissible fade show form-label-font-size" role="alert">
+              {{session('loginError')}}
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            @endif
+
+
+            <form method="post" action="/login">
+              @csrf
               <h1 class="h3 mb-3 fw-normal">Please Login</h1>
       
               <div class="form-floating">
                 <input
                   type="email"
-                  class="form-control"
+                  class="form-control 
+                  @error('email')
+                  is-invalid
+                  @enderror"
                   id="floatingInput"
                   placeholder="name@example.com"
+                  name="email"
+                  autofocus 
+                  required
+                  value="{{old('email')}}"
+                  
                 />
-                <label class="form-label-font-size" for="floatingInput">Email address</label>
+                <label class="form-label-font-size" for="email">Email address</label>
+
+                @error('email')
+                <div class="invalid-feedback form-label-font-size mb-1">
+                  {{$message}}
+                </div>
+                @enderror
               </div>
               <div class="form-floating">
                 <input
@@ -30,8 +54,9 @@
                   class="form-control"
                   id="floatingPassword"
                   placeholder="Password"
+                  name="password"
                 />
-                <label class="form-label-font-size" for="floatingPassword">Password</label>
+                <label class="form-label-font-size" for="email">Password</label>
               </div>
       
             
