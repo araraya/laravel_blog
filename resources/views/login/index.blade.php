@@ -6,8 +6,14 @@
 <div class="row justify-content-center">
     <div class="col-lg-4">
         <main class="form-signin w-100 m-auto">
+            @if(session()->has('success'))
+            <div class="alert alert-success alert-dismissible fade show form-label-font-size" role="alert">
+              {{session('success')}}
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            @endif
             <form>
-              <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+              <h1 class="h3 mb-3 fw-normal">Please Login</h1>
       
               <div class="form-floating">
                 <input
