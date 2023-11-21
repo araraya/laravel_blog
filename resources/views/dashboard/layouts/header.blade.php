@@ -6,11 +6,10 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
-        <form action="/logout" method="POST">
-          @csrf
-          <button type="submit" class="nav-link px-3 border-0 bg-dark text-white">
-            Logout <i class="bi bi-box-arrow-in-right"></i>
-          </button>
-        </form>
-    </ul>
+    <form action="/logout" method="POST">
+        @csrf
+        <button type="submit" class="nav-link px-3 border-0 bg-dark text-white text-nowrap">
+          Logout &nbsp;<span data-feather="log-out"></span>
+        </button>
+    </form>
   </nav>
