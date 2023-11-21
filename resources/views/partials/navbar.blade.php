@@ -34,7 +34,7 @@
                     <form action="/logout" method="POST">
                       @csrf
                       <button type="submit" class="dropdown-item">
-                        Logout &nbsp;<span data-feather="log-out"></span>
+                        Logout <i class="bi bi-box-arrow-in-right"></i>
                       </button>
                     </form>
                   </li>
