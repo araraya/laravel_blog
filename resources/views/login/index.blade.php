@@ -1,7 +1,7 @@
 @extends('layouts/main')
 
 
-@section('container')  
+@section('container')
 
 <div class="row justify-content-center">
     <div class="col-lg-4">
@@ -28,14 +28,14 @@
               <div class="form-floating">
                 <input
                   type="email"
-                  class="form-control 
+                  class="form-control
                   @error('email')
                   is-invalid
                   @enderror"
                   id="floatingInput"
                   placeholder="name@example.com"
                   name="email"
-                  autofocus 
+                  autofocus
                   required
                   value="{{old('email')}}"
                   

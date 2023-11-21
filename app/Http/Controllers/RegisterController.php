@@ -24,15 +24,9 @@ class RegisterController extends Controller
             'password' => 'required|min:5|max:255'
         ]);
 
-        // $validatedUserData['password'] = bcrypt($validatedUserData['password']);
         $validatedUserData['password'] = Hash::make($validatedUserData['password']);
 
         User::Create($validatedUserData);
-
-        // laravel 8 pake ini
-        // $request->session()->flash('success', 'Registration Success! Please Login');
-        // laravel 9
-        // session()->flash('success', 'Registration Success! Please Login');
 
         return redirect('/login')->with('success', 'Registration Success! Please Login');
     }

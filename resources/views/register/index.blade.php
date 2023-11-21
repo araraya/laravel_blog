@@ -1,7 +1,7 @@
 @extends('layouts/main')
 
 
-@section('container')  
+@section('container')
 
 <div class="row justify-content-center">
     <div class="col-lg-4">
