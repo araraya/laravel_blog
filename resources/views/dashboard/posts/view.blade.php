@@ -28,7 +28,6 @@
                 <div class="mt-3 fs-5">
                     <p>{!!$post->body!!}</p>
                 </div>
-                <a class="text-decoration-none fs-5" href="/posts">Back To Posts</a>
             </div>
         </div>
     </div>
