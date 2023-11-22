@@ -24,6 +24,19 @@
                     @endforeach
                 </select>
             </div>
+            <div class="mb-3">
+                <label for="slug" class="form-label">Select</label>
+                <select class="form-select form-control" aria-label="Default select example">
+                    @foreach($categories as $category)
+                    <option value="{{$category->name}}">{{$category->name}}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="body" class="form-label">Body</label>
+                <input id="body" type="hidden" name="content">
+                <trix-editor input="body"></trix-editor>
+            </div>
         </form>
     </div>
 
@@ -32,11 +45,14 @@
         const title = document.getElementById('title');
         const slug = document.getElementById('slug');
 
-        title.addEventListener('change', () =>{
+        title.addEventListener('change', () => {
             fetch('/dashboard/posts/generateSlug?title=' + title.value)
             .then(response => response.json())
             .then(data => slug.value = data.slug);
         })
 
+        document.addEventListener('trix-file-accept', () => {
+            e.preventDefault();
+        })
     </script>
 @endsection
