@@ -8,13 +8,21 @@
 
     <div class="col-lg-8">
         <form action="post">
-            <div class="form-group">
-                <label for="title">Title</label>
+            <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
                 <input type="text" class="form-control" id="title" placeholder="Title">
               </div>
-            <div class="form-group">
+            <div class="mb-3">
               <label for="slug">Slug</label>
               <input type="text" class="form-control" id="slug" placeholder="Slug">
+            </div>
+            <div class="mb-3">
+                <label for="slug" class="form-label">Select</label>
+                <select class="form-select form-control" aria-label="Default select example">
+                    @foreach($categories as $category)
+                    <option value="{{$category->name}}">{{$category->name}}</option>
+                    @endforeach
+                </select>
             </div>
         </form>
     </div>
@@ -25,7 +33,7 @@
         const slug = document.getElementById('slug');
 
         title.addEventListener('change', () =>{
-            fetch('/dashboard/posts/checkSlug?title=' + title.value)
+            fetch('/dashboard/posts/generateSlug?title=' + title.value)
             .then(response => response.json())
             .then(data => slug.value = data.slug);
         })
