@@ -5,8 +5,15 @@
         <h1 class="h2">{{auth()->user()->name}} Posts</h1>
     </div> 
 
+    
+    
 
     <div class="table-responsive col-lg-8">
+        <div class="my-2">
+            <a href="/dashboard/posts/create" class="btn bg-primary text-white">
+                Create New Post
+            </a>
+        </div>
         <table class="table table-striped table-sm">
             <thead>
                 <th>#</th>
