@@ -7,36 +7,30 @@
 
 
     <div class="col-lg-8">
-        <form action="post">
+        <form method="post" action="/dashboard/posts">
+            @csrf
             <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
-                <input type="text" class="form-control" id="title" placeholder="Title">
+                <input type="text" class="form-control" id="title" placeholder="Title" name="title">
               </div>
             <div class="mb-3">
               <label for="slug">Slug</label>
-              <input type="text" class="form-control" id="slug" placeholder="Slug">
+              <input type="text" class="form-control" id="slug" placeholder="Slug" name="slug">
             </div>
             <div class="mb-3">
                 <label for="slug" class="form-label">Select</label>
-                <select class="form-select form-control" aria-label="Default select example">
+                <select class="form-select form-control" aria-label="Default select example" name="category_id">
                     @foreach($categories as $category)
-                    <option value="{{$category->name}}">{{$category->name}}</option>
-                    @endforeach
-                </select>
-            </div>
-            <div class="mb-3">
-                <label for="slug" class="form-label">Select</label>
-                <select class="form-select form-control" aria-label="Default select example">
-                    @foreach($categories as $category)
-                    <option value="{{$category->name}}">{{$category->name}}</option>
+                    <option value="{{$category->id}}">{{$category->name}}</option>
                     @endforeach
                 </select>
             </div>
             <div class="mb-3">
                 <label for="body" class="form-label">Body</label>
-                <input id="body" type="hidden" name="content">
+                <input id="body" type="hidden" name="body">
                 <trix-editor input="body"></trix-editor>
             </div>
+            <button type="submit" class="btn btn-sm btn-primary">Create Post</button>
         </form>
     </div>
 
