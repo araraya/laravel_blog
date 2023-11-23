@@ -12,7 +12,12 @@
         <div class="row">
             <div class="col-lg-8">
                 <h2 class="mb-3">{{$post->title}}</h2>
+                @if($post->image)
+                <img class="img-fluid rounded" src="{{asset('storage/' . $post->image)}}" alt="{{$post->category->name}}">
+                @else
                 <img class="img-fluid rounded" src="https://source.unsplash.com/800x400/?{{$post->category->name}}" alt="{{$post->category->name}}">
+                @endif
+
                 <div class="mt-3">
                     <a class="btn btn-sm btn-info" href='/dashboard/posts'>
                         <span data-feather="arrow-left"></span>
