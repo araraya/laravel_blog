@@ -35,7 +35,7 @@
                         <a class="badge bg-info" href="/dashboard/posts/{{$post->slug}}">
                             <span data-feather="eye"></span>
                         </a>
-                        <a class="badge bg-warning" href="">
+                        <a class="badge bg-warning" href="/dashboard/posts/{{$post->slug}}/edit">
                             <span data-feather="edit"></span>
                         </a>
                         <form method="post" action="/dashboard/posts/{{$post->slug}}" class="d-inline">
