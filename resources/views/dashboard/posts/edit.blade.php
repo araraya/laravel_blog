@@ -7,7 +7,8 @@
 
 
     <div class="col-lg-8">
-        <form method="post" action="/dashboard/posts">
+        <form method="post" action="/dashboard/posts/{{$post->slug}}">
+            @method('put')
             @csrf
             <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
@@ -20,7 +21,7 @@
             </div>
             <div class="mb-3">
                 <label for="slug">Slug</label>
-                <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" placeholder="Slug" name="slug" value="{{old('slug'), $post->slug}}">
+                <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" placeholder="Slug" name="slug" value="{{old('slug', $post->slug)}}">
                 @error('slug')
                 <div class="invalid-feedback">
                     {{$message}}
@@ -47,7 +48,7 @@
                 <input id="body" type="hidden" name="body" value="{{old('body', $post->body)}}">
                 <trix-editor input="body"></trix-editor>
             </div>
-            <button type="submit" class="btn btn-sm btn-primary">Create Post</button>
+            <button type="submit" class="btn btn-sm btn-primary">Update Post</button>
         </form>
     </div>
 

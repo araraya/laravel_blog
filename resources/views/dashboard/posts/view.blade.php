@@ -14,13 +14,13 @@
                 <h2 class="mb-3">{{$post->title}}</h2>
                 <img class="img-fluid rounded" src="https://source.unsplash.com/800x400/?{{$post->category->name}}" alt="{{$post->category->name}}">
                 <div class="mt-3">
-                    <button class="btn btn-sm btn-info" href='/dashboard/posts'>
+                    <a class="btn btn-sm btn-info" href='/dashboard/posts'>
                         <span data-feather="arrow-left"></span>
                         Back to all posts
-                    </button>
-                    <button class="btn btn-sm btn-warning">
+                    </a>
+                    <a class="btn btn-sm btn-warning" href="/dashboard/posts/{{$post->slug}}/edit">
                         Edit
-                    </button>
+                    </a>
                     <form method="post" action="/dashboard/posts/{{$post->slug}}" class="d-inline">
                         @method('delete')
                         @csrf
