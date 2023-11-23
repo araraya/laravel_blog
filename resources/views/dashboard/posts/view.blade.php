@@ -14,16 +14,18 @@
                 <h2 class="mb-3">{{$post->title}}</h2>
                 <img class="img-fluid rounded" src="https://source.unsplash.com/800x400/?{{$post->category->name}}" alt="{{$post->category->name}}">
                 <div class="mt-3">
-                    <a class="btn btn-sm btn-info" href='/dashboard/posts'>
+                    <button class="btn btn-sm btn-info" href='/dashboard/posts'>
                         <span data-feather="arrow-left"></span>
                         Back to all posts
-                    </a>
-                    <a class="btn btn-sm btn-warning">
+                    </button>
+                    <button class="btn btn-sm btn-warning">
                         Edit
-                    </a>
-                    <a class="btn btn-sm btn-danger">
-                        Delete
-                    </a>
+                    </button>
+                    <form method="post" action="/dashboard/posts/{{$post->slug}}" class="d-inline">
+                        @method('delete')
+                        @csrf
+                        <button class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
+                    </form>
                 </div>
                 <div class="mt-3 fs-5">
                     <p>{!!$post->body!!}</p>

@@ -7,7 +7,7 @@
 
     
     @if(session()->has('success'))
-    <div class="alert alert-success" role="alert">
+    <div class="alert alert-success col-lg-8" role="alert">
         {{session('success')}}
     </div>
     @endif
@@ -38,9 +38,11 @@
                         <a class="badge bg-warning" href="">
                             <span data-feather="edit"></span>
                         </a>
-                        <a class="badge danger" href="">
-                            <span data-feather="x-circle"></span>
-                        </a>
+                        <form method="post" action="/dashboard/posts/{{$post->slug}}" class="d-inline">
+                            @method('delete')
+                            @csrf
+                            <button class="badge badge-danger border-0" onclick="return confirm('Are you sure?')"><span data-feather="x-circle"></span></button>
+                        </form>
                     </td>
                 </tr>
                 @endforeach
