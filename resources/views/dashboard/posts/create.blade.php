@@ -40,7 +40,7 @@
             </div>
             <div class="mb-3">
                 <label for="image">Image</label>
-                <img class="img-preview img-fluid mb-3" alt="preview">
+                <img class="img-preview img-fluid mb-3 d-none" alt="preview">
                 <input type="file" accept="image/png, image/jpeg" class="form-control-file  @error('image') is-invalid @enderror"
                  id="image" name="image" onchange="imagePreview()">
                 @error('image')
@@ -74,12 +74,12 @@
             e.preventDefault();
         })
 
-        function imagePreview(e) {
+        function imagePreview() {
             const image = document.querySelector('#image');
             const imgPreview = document.querySelector('.img-preview')
 
-            imgPreview.style.display = 'block';
-
+            imgPreview.classList.remove('d-none')
+            imgPreview.classList.add('d-block')
             const ofReader = new FileReader();
             ofReader.readAsDataURL(image.files[0]);
 
