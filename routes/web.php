@@ -58,4 +58,4 @@ Route::get('/dashboard/posts/generateSlug', [DashboardPostController::class, 'ge
 
 Route::resource('/dashboard/posts', DashboardPostController::class)->middleware('auth');
 
-Route::resource('/dashboard/category', AdminCategoryController::class)->middleware('auth')->except('show');
+Route::resource('/dashboard/category', AdminCategoryController::class)->except('show')->middleware('admin');
